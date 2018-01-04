@@ -1,0 +1,63 @@
+<div ng-controller="mainController" class="container">
+
+
+  <div class="form-container" ng-hide="submitform">
+    <div class="form-header-text col-md-12">
+      <h3>Complete the form below to secure <span>extra incentives, low monthly payments</span> and  <span>zero deposit on selected models</span> during this sale.</h3>
+    </div>
+
+    <div class="col-md-12">
+      <form novalidate class="simple-form">
+        <div class="row">
+          <div class="col-lg-4 col-sm-12 form-row">
+            <input class="form-input" type="text" ng-model="user.name" placeholder="Name" />
+          </div>
+          <div class="col-lg-4 col-sm-12 form-row">
+            <input class="form-input" type="email" ng-model="user.email" placeholder="Email" />
+          </div>
+          <div class="col-lg-4 col-sm-12 form-row dropdown">
+            <select class="form-input local dropdown-toggle" ng-model="user.location">
+              <option value="">Select your nearest centre</option>
+              <option ng-repeat="location in locations" value="{{locations.name}}">{{location.name}}</option>
+            </select>
+          </div>
+        </div>
+
+        <p>Please click on the vehicle you are interested in below:-</p>
+        <div class="row model">
+          <div class="col-lg-3 model-row">
+            <label>BMW 118i Sport </label><input type="radio" ng-model="user.preference" value="BMW 118i Sport " />
+            <label>BMW 420d Sport </label><input type="radio" ng-model="user.preference" value="BMW 420d Sport " />
+          </div>
+          <div class="col-lg-3 model-row">
+            <label>BMW 2 Series GT </label><input type="radio" ng-model="user.preference" value="BMW 2 Series GT " />
+            <label>BMW 520d M Sport </label><input type="radio" ng-model="user.preference" value="BMW 520d M Sport " />
+          </div>
+          <div class="col-lg-3 model-row">
+            <label>BMW 320d Sport </label><input type="radio" ng-model="user.preference" value="BMW 320d Sport " />
+            <label>Other </label><input type="radio" ng-model="user.preference" value="Other " />
+          </div>
+        </div>
+          <input class="submit" type="submit" ng-click="update(user)" value="submit" />
+      </div>
+      </form>
+    </div>
+
+
+    <div class="submit-container" ng-show="submitmessage">
+      <h2>
+        Thank you, <span>{{master.name}}</span>.<br>
+        <br>
+        You have chosen to receive information about <span>{{master.preference}}</span> models and events at your local centre.<br>
+        <br>
+        You will receive an email shortly.<br>
+        Thank you.
+      </h2>
+    </div>
+
+
+
+  </div>
+
+
+</div>

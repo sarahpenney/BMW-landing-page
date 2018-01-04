@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="bmwApp">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="js/app.js"></script>
+  <link rel="stylesheet" type="text/css" href="public/css/main.css">
+  <title></title>
+</head>
+
+<body ng-controller="mainController">
+
+  <div class="main-container">
+
+    <nav class="navbar">
+      <h6>OCEAN GROUP</h6>
+      <div class="items">
+        <a href="#"><img src="images/nav-1.png"></a>
+        <a href="#"><img src="images/nav-2.png"></a>
+      </div>
+    </nav>
+
+    <div class="hero-content">
+      <h1 class="exclusive">EXCLUSIVE</h1>
+      <h1 class="yearend">YEAR END</h1>
+      <h1 class="sale">SALE</h1>
+      <p>ENDS SATURDAY 31 DECEMBER</p>
+      <a href="#" class="arrow"></a>
+    </div>
+
+    <!-- VIEW THAT CHAGES TO THE OTHER PAGES IF NEEDED-->
+    <div ng-view></div>
+
+    <footer class="footer">
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-md-4">
+      </div>
+    </footer>
+  </div>
+
+</body>
+
+</html>
