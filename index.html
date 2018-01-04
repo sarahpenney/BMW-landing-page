@@ -15,39 +15,137 @@
   <title></title>
 </head>
 
-<body ng-controller="mainController">
+<body ng-controller="mainController" class="main-container">
 
-  <div class="main-container">
 
-    <nav class="navbar">
-      <h6>OCEAN GROUP</h6>
-      <div class="items">
-        <a href="#"><img src="images/nav-1.png"></a>
-        <a href="#"><img src="images/nav-2.png"></a>
-      </div>
-    </nav>
+  <nav class="navbar">
+    <h6>OCEAN GROUP</h6>
+    <div class="items">
+      <a href="#"><img src="images/nav-1.png"></a>
+      <a href="#"><img src="images/nav-2.png"></a>
+    </div>
+  </nav>
 
+  <div class="hero">
     <div class="hero-content">
       <h1 class="exclusive">EXCLUSIVE</h1>
       <h1 class="yearend">YEAR END</h1>
       <h1 class="sale">SALE</h1>
       <p>ENDS SATURDAY 31 DECEMBER</p>
-      <a href="#" class="arrow"></a>
+      <a ng-click="gotoBottom()" href="#" class="arrow"></a>
     </div>
-
-    <!-- VIEW THAT CHAGES TO THE OTHER PAGES IF NEEDED-->
-    <div ng-view></div>
-
-    <footer class="footer">
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-      </div>
-      <div class="col-md-4">
-      </div>
-    </footer>
+    <div class="hero-image">
+    </div>
   </div>
 
+  <div class="container">
+    <div class="form-container" ng-hide="submitform">
+      <div class="form-header-text col-md-12">
+        <h3>Complete the form below to secure <span>extra incentives, low monthly payments</span> and  <span>zero deposit on selected models</span> during this sale.</h3>
+      </div>
+
+      <div class="col-md-12">
+        <form novalidate class="simple-form">
+          <div class="row">
+            <div class="col-lg-4 col-sm-12 form-row">
+              <input class="form-input" type="text" ng-model="user.name" placeholder="Name" />
+            </div>
+            <div class="col-lg-4 col-sm-12 form-row">
+              <input class="form-input" type="email" ng-model="user.email" placeholder="Email" />
+            </div>
+            <div class="col-lg-4 col-sm-12 form-row dropdown">
+              <select class="form-input local dropdown-toggle" ng-model="user.location">
+                  <option value="">Select your nearest centre</option>
+                  <option ng-repeat="location in locations" value="{{locations.name}}">{{location.name}}</option>
+                </select>
+            </div>
+          </div>
+
+          <p>Please click on the vehicle you are interested in below:-</p>
+
+          <div class="col-lg-12 col-md-12">
+            <div class="row models">
+              <div class="col-lg-3">
+                <div class="choice">
+                  <label>BMW 118i Sport </label><input type="radio" ng-model="user.preference" value="BMW 118i Sport " />
+                </div>
+                <div class="choice">
+                  <label>BMW 420d Sport </label><input type="radio" ng-model="user.preference" value="BMW 420d Sport " />
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="choice">
+                  <label>BMW 2 Series GT </label><input type="radio" ng-model="user.preference" value="BMW 2 Series GT " />
+                </div>
+                <div class="choice">
+                  <label>BMW 520d M Sport </label><input type="radio" ng-model="user.preference" value="BMW 520d M Sport " />
+                </div>
+              </div>
+              <div class="col-lg-3">
+                <div class="choice">
+                  <label>BMW 320d Sport </label><input type="radio" ng-model="user.preference" value="BMW 320d Sport " />
+                </div>
+                <div class="choice">
+                  <label>Other </label><input type="radio" ng-model="user.preference" value="Other " />
+                </div>
+              </div>
+            </div>
+          </div>
+          <input class="submit" type="submit" ng-click="update(user)" value="submit" />
+      </div>
+      </form>
+    </div>
+
+
+    <div class="submit-container" ng-show="submitmessage">
+      <div class="col-lg-12 col-md-12">
+        <h2>
+            Thank you, <span>{{master.name}}</span>.<br>
+            <br>
+            You have chosen to receive information about <span>{{master.preference}}</span> models and events at your local centre.<br>
+            <br>
+            You will receive an email shortly.<br>
+          </h2>
+      </div>
+    </div>
+
+    <footer class="footer col-md-12">
+      <div class="row">
+        <div class="col-md-6">
+          <h2><span>www.</span>oceanbmw<span>.com</span></h2>
+        </div>
+
+        <div class="col-md-6 social">
+          <div class="links"></div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="breakline"></div>
+        </div>
+        <div class="row address col-md-12">
+          <div class="col-md-4">
+            <h3>FALLMOUTH</h3>
+            <h6>Falmouth Road, Penryn TR12 6LP</h6>
+            <h4>01326 375100</h4>
+          </div>
+          <div class="col-md-4">
+            <h3>TORBAY</h3>
+            <h6>349 Totnes Road, Paignton TQ4 7DF</h6>
+            <h4>01803 666666</h4>
+          </div>
+          <div class="col-md-4">
+            <h3>PLYMOUTH</h3>
+            <h6>St Modwen House, Longbridge Road Pl6 8LD</h6>
+            <h4>01752 202828</h4>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <p>Offers available to retail customers only. Terms and conditions apply. Offer may be varied, withdrawn or extended at any time. Images used for illustration purposes only. Prices correct at time of email distribution.</p>
+        </div>
+    </footer>
+    </div>
+  </div>
+  <div id="bottom"></div>
 </body>
 
 </html>

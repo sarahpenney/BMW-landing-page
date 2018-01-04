@@ -1,6 +1,7 @@
 // COLORS
 $bmw-black: #4a4a4a;
 $bmw-dark-grey: #696f73;
+$bmw-darkest-grey: #3c3c3e;
 $bmw-light-grey: #cdcdcd;
 $bmw-white: #ffffff;
 $bmw-yellow: #fecd00;
@@ -9,6 +10,42 @@ $bmw-mid-turq: #009eae;
 $bmw-dark-turq: #004f58;
 
 //FONT SIZES
-$h1-desktop: 50px;
-$h1-mobile: 36px;
-//COMMON ELEMENT SIZES
+$bmw-medium-font: 14px;
+
+
+
+
+//IF SMALL ALTERATIONS ARE NEEDED
+@mixin below-breakpoint($point) {
+  @if $point == x-large {
+    @media all and (max-width: 1449px) { @content; }
+  }
+  @else if $point == large {
+    @media all and (max-width: 1239px) { @content; }
+  }
+  @else if $point == medium {
+    @media all and (max-width: 929px)  { @content; }
+  }
+  @else if $point == small {
+    @media all and (max-width: 619px)  { @content; }
+  }
+  @else if $point == x-small {
+    @media all and (max-width: 321px)  { @content; }
+  }
+}
+
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes slidein {
+  from {
+    margin-top: -100px;
+  }
+
+  to {
+    margin-bottom: 0%;
+  }
+}

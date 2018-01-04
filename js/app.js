@@ -1,9 +1,8 @@
-// TODO: controllers / routes / in seperate files
 
 var bmwApp = angular.module('bmwApp', ['ngRoute']);
 
-bmwApp.controller('mainController', function($scope, $http) {
-  $scope.message = 'testing';
+bmwApp.controller('mainController', ['$scope', '$location', '$rootElement', '$anchorScroll', function($scope, $http, $window, $rootElement, $location, $rootScope, $anchorScroll) {
+
 
   //GETTING FORM INFORMATION FOR USER TO ADD TO A CUSTOMER CMS
   $scope.master = {};
@@ -36,7 +35,15 @@ bmwApp.controller('mainController', function($scope, $http) {
 
   $scope.reset();
 
-});
+
+  $scope.gotoBottom = function() {
+
+    var location = angular.element( document.querySelector( '#bottom' ) );
+    console.log(location);
+
+  };
+
+}]);
 
 
 // routes
